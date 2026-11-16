@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CS Matching Game</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+<h1>CS Matching Game</h1>
+<p class="sub">Study first, then match terms with definitions against the clock.</p>
+<div class="row">
+<select id="deck" aria-label="Topic"></select>
+<select id="mode" aria-label="Mode">
+<option value="study">Level 1: Study</option>
+<option value="play" selected>Level 2: Match (timed)</option>
+</select>
+<select id="size" aria-label="Pairs">
+<option value="4">4 pairs</option>
+<option value="6" selected>6 pairs</option>
+<option value="8">8 pairs</option>
+</select>
+</div>
+<div class="row">
+<button class="primary" id="start">New game</button>
+<button id="theme">Theme</button>
+</div>
+<p class="skill" id="skill"></p>
+<div class="stats" id="stats">
+<div class="stat"><b id="moves">0</b>Moves</div>
+<div class="stat"><b id="pairs">0/0</b>Pairs</div>
+<div class="stat"><b id="time">3:00</b>Time left</div>
+<div class="stat"><b id="score">0</b>Score</div>
+</div>
+<div id="grid"></div>
+<div id="info"></div>
+<div id="win"></div>
+
+<details>
+<summary>AI content import (teacher tool)</summary>
+<p class="sub">Ask any AI (ChatGPT, Claude) to generate new card pairs with this prompt, then paste the JSON result below.</p>
+<pre id="prompt">Create 10 term-definition pairs for the topic "TOPIC" for university computer science students. Keep each definition under 12 words. Reply with JSON only, in this format: [{"term":"...","definition":"..."}]</pre>
+<button id="copy">Copy prompt</button>
+<textarea id="json" placeholder='[{"term":"Cache","definition":"Fast memory that stores frequently used data."}]'></textarea>
+<button class="primary" id="load">Load as custom deck</button>
+<div id="msg" class="sub"></div>
+</details>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
